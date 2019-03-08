@@ -1,0 +1,45 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: darkgrey;
+}
+
+.nav_bar{
+    background-color: lightgrey;
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    top: 0;
+    text-align: center;
+}
+
+.recipes{
+    top:200px;
+    width: 60%;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-left: 5%;
+    padding-top: 10%;
+    margin-right: 0;
+    padding-bottom: 10%;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: lightgrey;
+    text-align: center;
+}
+
+.recipe1, .recipe2, .recipe3{
+    display:flex;
+    justify-content: right;
+    flex-wrap:wrap;
+    flex-direction: row;
+    text-align: center;
+}
+
