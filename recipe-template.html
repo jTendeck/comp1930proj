@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recipe Template</title>
+
+	<style>
+		
+		@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+		body {
+			margin: 0;
+			font-family: 'Roboto', sans-serif;
+			background-image: url("images/recipes-backgroud.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+
+		}
+
+		[body$=".jpg"] {
+			filter: brightness(50%);
+		}
+
+		#navBar {
+			background-color: #ea3333;
+			width: 100%;
+			height: 80px;
+			display: flex;
+			align-items: center;
+			align-content: center;
+			justify-content: center;
+			color: white;
+		}
+
+		#navBar > div {
+			display: flex;
+			align-items: flex-end;
+			align-content: center;
+			justify-content: space-between;
+			width: 80%;
+		}
+ 		
+ 		#logo {
+ 			width: 60px;
+ 			height: 60px;
+ 			border-radius: 30px;
+ 			background-color: white;
+ 		}
+
+ 		#buttonContainer {
+ 			font-size: 18pt;
+ 			width: 400px;
+ 			display: flex;
+ 			justify-content: space-between;
+ 		}
+
+ 		#button {
+ 			display: flex;
+ 			align-items: flex-end; 
+ 		}
+
+ 		#footer {
+ 			position: absolute;
+			left: 0;
+  			bottom: 0;
+  			width: 100%;
+  			height: 50px;
+  			background-color: #ea3333;
+			text-align: center;
+			color: white;
+ 		}
+
+ 		#bodyContainer {
+			width: 100%;
+			display: flex;
+			align-items: space-between;
+			align-content: space-between;
+			justify-content: space-between;
+			color: white;
+ 		}
+
+ 		#recipeContainer {
+ 			background-color: white;
+ 			width: 100%;
+ 			height:	575px;
+ 			/*border-radius: 15px;*/
+ 		}
+
+	</style>
+</head>
+<body>
+	<div id="navBar">
+		<div>
+			<div id="logo"></div>
+			<div id="buttonContainer">
+				<div id="button">Home</div>
+				<div id="button">Recipes</div>
+				<div id="button">Fun</div>
+				<div id="button">No</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="bodyContainer">
+		<div id="recipeContainer">hi</div>
+		<div id="footer">footer time haha wow</div>
+	</div>
+
+		
+</body>
+</html>
