@@ -32,16 +32,24 @@ body {
 
 .recipes {
     text-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    color: white;
 }
 
 .Ingredients {
     text-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    color: white;
 }
 
 .Stats {
     text-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    color: white;
 }
 
 .Others {
     text-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    color: white;
 }
