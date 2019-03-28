@@ -198,7 +198,7 @@
 	<script>
 		// GETTING THE DATABASE LIST
 		function GetList (category) {
-			var dbref = firebase.database().ref(category+ "/");
+			var dbref = firebase.database().ref("Recipes/" + category);
 			var promise = dbref.once('value', function(snap) {
 				list = snap.val();
 			});
@@ -225,8 +225,18 @@
 		// CLICK FOR RECIPE 1
 		document.getElementById("recipeButton1").addEventListener("click",
 			function(){
-				GetList("Recipes");
+				GetList("Famous_Salsa");
 			});
+		// ClICK FOR RECIPE 2
+		document.getElementById("recipeButton2").addEventListener("click",
+			function() {
+				GetList("Creamy Au Gratin Potatoes");
+			});
+		// CLICK FOR RECIPE 3
+		document.getElementById("recipeButton3").addEventListener("click",
+			function() {
+				GetList("Tomato_Basil_Soup");
+		});
 	</script>
 </body>
 </html>
