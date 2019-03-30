@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recipe Template</title>
+
+	<style>
+		
+		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+		body {
+			margin: 0;
+			font-family: 'Roboto', sans-serif;
+			background-image: url("/images/recipes-backgroud.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+		}
+
+		.navBar {
+			background-color: #ea3333;
+			width: 100%;
+			height: 100px;
+			display: flex;
+			align-items: center;
+			align-content: center;
+			justify-content: center;
+			color: white;
+		}
+
+		.navDecoration {
+			background-color: white;
+			width: 100%;
+			height: 5px;
+		}
+
+		.navBar > div {
+			display: flex;
+			align-items: flex-end;
+			align-content: center;
+			justify-content: space-between;
+			width: 67%;
+		}
+ 		
+ 		#logo {
+ 			width: 70px;
+ 			height: 70px;
+ 			border-radius: 35px;
+ 			background-color: white;
+ 		}
+
+ 		.buttonContainer {
+ 			font-size: 18pt;
+ 			width: 300px;
+ 			display: flex;
+ 			justify-content: space-between;
+ 		}
+
+ 		.button {
+ 			display: flex;
+ 			align-items: flex-end; 
+ 		}
+
+ 		.recipeContainer {
+ 			background-color: white;
+ 			width: 62%;
+ 			margin: 40px auto;
+ 			padding: 50px 100px;
+ 			display: flex;
+			align-content: center;
+			justify-content: center;
+			flex-direction: column;
+ 		}
+
+ 		.recipeTop {
+ 			display: flex;
+ 			justify-content: space-between;
+ 			width: 100%;
+ 			margin-bottom:30px;
+ 		}
+
+ 		#recipeTitle {
+ 			font-weight: 700;
+ 			font-size: 30pt;
+ 			margin-bottom: 10px;
+ 		}
+
+ 		#recipeDescription {
+ 			margin-top: 10px;
+ 			font-weight: 300;
+ 			width: 85%;
+ 		}
+
+ 		.recipeSelectorContainer {
+ 			width: 80%;
+ 			font-size: 18pt;
+ 			margin: 0 auto 75px auto;
+ 			display: flex;
+ 			justify-content: space-around;
+ 		}
+
+ 		.buttonDivider {
+ 			width: 2px;
+ 			background-color: gray;
+ 		}
+
+ 		.pageLeft {
+ 			display: flex;
+ 			flex-direction: column;
+ 			align-content: space-between;
+ 			justify-content: space-between;
+ 		}
+
+	</style>
+</head>
+
+<body>
+	<div class="navBar">
+		<div>
+			<div id="logo"></div>
+			<div class="buttonContainer">
+				<div class="button" id="recipeNavButton">Recipes</div>
+				<div class="button" id="ingredientsNavButton">Ingredients</div>
+			</div>
+		</div>
+	</div>
+	<div class="navDecoration"></div>
+
+	<div class="recipeContainer">
+	
+		<div class="recipeSelectorContainer">
+			<b><div id="recipeButton1">Recipe 1</div></b>
+			<div class="buttonDivider"></div>
+			<b><div id="recipeButton2">Recipe 2</div></b>
+			<div class="buttonDivider"></div>
+			<b><div id="recipeButton3">Recipe 3</div></b>
+		</div>
+
+		<div class="recipeTop">
+
+			<div class="pageLeft">
+				<div>
+					<div id="recipeTitle">Recipe Title</div>
+					<div id ="recipeDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet in lectus a facilisis. Vestibulum tincidunt, diam non venenatis feugiat, mi ante cursus velit, quis mollis urna ipsum pharetra mi. Fusce a nunc libero. Vestibulum ante ipsum primis in faucibus.</div>
+				</div>
+
+				<div>
+					<b>Servings:</b> <span id="servings">4</span><br>
+					<b>Calories:</b> <span id="calories">>9000</span><br>
+					<b>Author:</b> <span id="author">Bill</span>
+				</div>
+			</div>
+
+			<div id="recipePic"><img src="https://dummyimage.com/425x260/000/fff" alt="Recipe image"><img></div>
+		</div>
+
+		<div>
+			<h2>Ingredients</h2>
+			<div id="ingredientsBody">
+				<ul>
+					<li>Ingredient 1</li>
+					<li>Ingredient 2</li>
+					<li>Ingredient 3</li>
+					<li>Ingredient 4</li>
+					<li>Ingredient 5</li>
+				</ul>
+			</div>
+		</div>
+
+		<div>
+			<h2>Method</h2>
+			<div id="methodBody">
+				<ol>
+					<li>Method 1</li>
+					<li>Method 2</li>
+					<li>Method 3</li>
+					<li>Method 4</li>
+					<li>Method 5</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

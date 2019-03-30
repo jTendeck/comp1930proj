@@ -1,24 +1,15 @@
-const express = require('express');
-const app = express();
-const path = require('path');
-const router = express.Router();
+var express = require('express');
+var app     = express();
 
-router.get('/', function(req,res){
-  res.sendFile(path.join(__dirname+'/MainPage.html'));
-  //__dirname : It will resolve to your project folder.
+app.use(express.static('public'));
+
+app.get('/', function(req, res){
+    res.sendFile('public/html/MainPage.html' , { root : __dirname});
 })
 
-router.get('/mainPagecss', function(req,res){
-  res.sendFile(path.join(__dirname+'/In-Season_MainPage.css'));
-  //__dirname : It will resolve to your project folder.
+var server = app.listen(8081, function () {
+    var host = server.address().address
+    var port = server.address().port
+
+console.log('listening on port 8081');
 })
-
-router.get('/mainPageImage', function(req,res){
-  res.sendFile(path.join(__dirname+'/In-Season_MainPage_background3.jpeg'));
-  //__dirname : It will resolve to your project folder.
-})
-
-app.use('/', router);
-app.listen(process.env.port || 8000);
-
-console.log('Running at Port 8000');
