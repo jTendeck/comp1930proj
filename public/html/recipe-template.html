@@ -205,6 +205,7 @@
 		}
 	*/
 	</style>
+	<script src= "/js/data.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 	<script>
@@ -294,10 +295,8 @@
 
 		<div>
 			<h2>Ingredients</h2>
-			<div class="ingredientsBody">
-				<ul>
-					<li id="ing1">Ingredient 1</li>
-				</ul>
+			<div id="ingredientsBody">
+			
 			</div>
 		</div>
 
@@ -313,7 +312,7 @@
 
 	<script>
 
-		// CLICK FOR RECIPE 1
+		//CLICK FOR RECIPE 1
 		document.getElementById("recipeButton1").addEventListener("click",
 			function(){
 				GetList("Famous_Salsa");
@@ -328,24 +327,21 @@
 		// CLICK FOR RECIPE 3
 		document.getElementById("recipeButton3").addEventListener("click",
 			function() {
-				GetList("Tomato_Basil_Soup");
+				GetList("Tomato_Basil_Soup");		
+		 });
 
-				
-		});
-<<<<<<< HEAD
+		// var slideIndex = 1;
+		// showSlides(slideIndex);
 
-		var slideIndex = 1;
-		showSlides(slideIndex);
+		// // Next/previous controls
+		// function plusSlides(n) {
+		// showSlides(slideIndex += n);
+		// }
 
-		// Next/previous controls
-		function plusSlides(n) {
-		showSlides(slideIndex += n);
-		}
-
-		// Thumbnail image controls
-		function currentSlide(n) {
-		showSlides(slideIndex = n);
-		}
+		// // Thumbnail image controls
+		// function currentSlide(n) {
+		// showSlides(slideIndex = n);
+		// }
 
 		// JS FOR IMAGE SLIDER
 		// function showSlides(n) {
@@ -363,8 +359,8 @@
 		// slides[slideIndex-1].style.display = "block"; 
 		// dots[slideIndex-1].className += " active";
 		// }
-=======
-		// GETTING THE DATABASE LIST
+
+		//GETTING THE DATABASE LIST
 		function GetList (category) {
 			var dbref = firebase.database().ref("Recipes/" + category + "/Ingredients/");
 			var promise = dbref.once('value', function(snap) {
@@ -376,51 +372,68 @@
 			});
 		};
 
-		// // GETTING THE DATABASE LIST
-		// function GetMethod (category) {
-		// 	var dbref = firebase.database().ref("Recipes/" + category + "/Methods/");
-		// 	var promise = dbref.once('value', function(snap) {
-		// 		list2 = snap.val();
-		// 		//console.log(list2);
-		// 	});
-		// 	promise.then(function (){
-		// 		DisplayList(list2);
-		// 	});
-		// };
-				// // DISPLAY LIST FUNCTION
-				// function DisplayList (list2){
-        // for (Methods in list2){
-				// 	console.log(Methods);             //key   
-        //   console.log(list2[Methods]);       //value
-            
-				// 		// create a <p> element to show key value pair
-				// 			var para2 = document.createElement("p");
-        //   		document.body.appendChild(para2);
-        //   		var node2 = document.createTextNode(Methods);
-				// 			para2.appendChild(node2);
-				// 			var Methods = document.getElementById("Step1").innerHTML = list2;
-				// 			//console.log(Methods);
-				// 		}
-				// 	}
+		// // // GETTING THE DATABASE LIST
+		function GetMethod (category) {
+			var dbref = firebase.database().ref("Recipes/" + category + "/Methods/");
+			var promise = dbref.once('value', function(snap) {
+				list2 = snap.val();
+				//console.log(list2);
+			});
+			promise.then(function (){
+				DisplayList(list2);
+			});
+		};
 
-				// DISPLAY LIST FUNCTION
-				function DisplayList (list){
-        for (ingredients in list){
-					console.log(ingredients);             //key   
-          console.log(list[ingredients]);       //value
-            
-						// create a <p> element to show key value pair
-							var para = document.createElement("p");
-          		document.body.appendChild(para);
-          		var node = document.createTextNode(ingredients);
-							para.appendChild(node);
-							var ingredient = document.getElementById("ing1").innerHTML = list;
-							//console.log(ingredient);
+				// // DISPLAY LIST FUNCTION
+				function DisplayList (list2){
+        			for (Methods in list2){
+						console.log(Methods);              //key   
+          				console.log(list2[Methods]);       //value
+
+						var Methods = document.getElementById("Step1").innerHTML = Methods;
+						//console.log(Methods);
 						}
 					}
 
+				// DISPLAY LIST FUNCTION
+				function DisplayList (list){
+        			for (ingredients in list){
+						console.log(ingredients);             //key   
+          				console.log(list[ingredients]);       //value
+            
+						var ingredient = document.getElementById("ingredientsBody").innerHTML = ingredients;
+						//console.log(ingredient);
+						}
+					}
+					
+		// GET A LIST OF 'THINGS' FROM THE SERVER AS JSON DATA
+		$('#recipeButton1').click(function(e) {
+			console.log("click registered RECIPE 1");
+			// don't allow the anchor to visit the link
+			e.preventDefault();
 
->>>>>>> 6acf997e63996f08151a79087c9136b5a3cce725
+			$.ajax({
+				url: "/ajax-GET-list",
+				dataType: "json",
+				type: "GET",
+				data: { format: "json-list"},
+				success: function(data) {
+					console.log("SUCCESS JSON:", data);
+					var div = $("#ingredientsBody");
+					let htmlStr = "<ul>";
+					for(let i = 0; i < data.length; i++) {
+						htmlStr += "<li>" + data[i] + "</li>";
+					}
+					htmlStr += "</ul>";
+					div.html(htmlStr);
+
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					$("#p1").text(jqXHR.statusText);
+					console.log("ERROR:", jqXHR, textStatus, errorThrown);
+				}
+			});
+		});
 	</script>
 </body>
 </html>
