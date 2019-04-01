@@ -210,8 +210,8 @@
 
 		<div>
 			<h2>Ingredients</h2>
-			<div class="ingredientsBody">
-				<ul id="ing1">
+			<div id="ingdiv" class="ingredientsBody">
+				<ul id="inglist">
 
 				</ul>
 			</div>
@@ -219,8 +219,8 @@
 
 		<div>
 			<h2>Method</h2>
-			<div id="methodBody">
-				<ol id="Step1">
+			<div id="stepDiv" class="methodBody">
+				<ol id="stepList">
 
 				</ol>
 			</div>
@@ -262,38 +262,18 @@
 		};
 		// DISPLAY LIST INGREDIENTS
 		function DisplayList(list) {
-			ingDiv = document.getElementById("ing1");
+			var listDom = document.getElementById("inglist");
+			while (listDom.hasChildNodes()) {
+				listDom.removeChild(listDom.firstChild);
+			}
 			for (x in list) {
-				console.log(list[x]); //ingredient
-				var para = document.createElement("li"); //create list element
-				ingDiv.appendChild(para); //append to ingredients div
+				var item = document.createElement("li");
+				listDom.appendChild(item);
 				var node = document.createTextNode(list[x]);
-				para.appendChild(node);
-				//var ingredient = document.getElementById("ing1").innerHTML = list[x];
+				item.appendChild(node);
 			}
 		}
 
-<<<<<<< HEAD
-		// DISPLAY LIST FUNCTION
-		function DisplayList (list){
-        console.log(list);
-        //var list = {"rest1": "hortons", "rest2": "jugo", "rest3":"whitespot"};
-        for (x in list){
-            console.log(x);             //key   
-            console.log(list[x]);       //value
-            
-		// create a <p> element to show key value pair
-            var para = document.createElement("p");
-            document.body.appendChild(para);
-            var node = document.createTextNode (x);
-						para.appendChild(node);
-						}
-					}
-		// CLICK FOR RECIPE 1
-		document.getElementById("recipeButton1").addEventListener("click",
-			function(){
-				GetList("Recipes");
-=======
 		// GETTING THE DATABASE LIST
 		function GetMethod(Method) {
 			var dbref = firebase.database().ref("Recipes/" + Method + "/Methods");
@@ -303,18 +283,20 @@
 			});
 			promise.then(function () {
 				DisplayList2(list2);
->>>>>>> ac34afac90e540a7bb9e458d0a828d76f49d3539
 			});
 		};
+
 		// DISPLAY LIST METHODS FOR RECIPES
 		function DisplayList2(list2) {
-			methDiv = document.getElementById("Step1");
+			var listDom2 = document.getElementById("stepList");
+			while (listDom2.hasChildNodes()) {
+			listDom2.removeChild(listDom2.firstChild);
+			}
 			for (x in list2) {
-				//console.log(list2[x]);
-				var para2 = document.createElement("li");
-				methDiv.appendChild(para2);
+				var item2 = document.createElement("li");
+				listDom2.appendChild(item2);
 				var node2 = document.createTextNode(list2[x]);
-				para2.appendChild(node2);
+				item2.appendChild(node2);
 			}
 		}
 	</script>
