@@ -223,6 +223,8 @@
 </head>
 
 <body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 	<div class="navBar">
 		<div>
@@ -292,13 +294,9 @@
 
 		<div>
 			<h2>Ingredients</h2>
-			<div id="ingredientsBody">
+			<div class="ingredientsBody">
 				<ul>
-					<li>Ingredient 1</li>
-					<li>Ingredient 2</li>
-					<li>Ingredient 3</li>
-					<li>Ingredient 4</li>
-					<li>Ingredient 5</li>
+					<li id="ing1">Ingredient 1</li>
 				</ul>
 			</div>
 		</div>
@@ -307,46 +305,20 @@
 			<h2>Method</h2>
 			<div id="methodBody">
 				<ol>
-					<li>Method 1</li>
-					<li>Method 2</li>
-					<li>Method 3</li>
-					<li>Method 4</li>
-					<li>Method 5</li>
+					<li id="Step1">Method 1</li>
 				</ol>
 			</div>
 		</div>
 	</div>
-	<script>
-		// GETTING THE DATABASE LIST
-		function GetList (category) {
-			var dbref = firebase.database().ref("Recipes/" + category);
-			var promise = dbref.once('value', function(snap) {
-				list = snap.val();
-			});
-			promise.then(function (){
-				DisplayList(list);
-			});
-		};
 
-		// DISPLAY LIST FUNCTION
-		function DisplayList (list){
-        console.log(list);
-        //var list = {"rest1": "hortons", "rest2": "jugo", "rest3":"whitespot"};
-        for (x in list){
-            console.log(x);             //key   
-            console.log(list[x]);       //value
-            
-            // create a <p> element to show key value pair
-            var para = document.createElement("p");
-            document.body.appendChild(para);
-            var node = document.createTextNode (x);
-						para.appendChild(node);
-						}
-					}
+	<script>
+
 		// CLICK FOR RECIPE 1
 		document.getElementById("recipeButton1").addEventListener("click",
 			function(){
 				GetList("Famous_Salsa");
+				// GetMethod("Famous_Salsa");
+			//console.log(GetList("Famous_Salsa"));
 			});
 		// ClICK FOR RECIPE 2
 		document.getElementById("recipeButton2").addEventListener("click",
@@ -360,6 +332,7 @@
 
 				
 		});
+<<<<<<< HEAD
 
 		var slideIndex = 1;
 		showSlides(slideIndex);
@@ -390,6 +363,64 @@
 		// slides[slideIndex-1].style.display = "block"; 
 		// dots[slideIndex-1].className += " active";
 		// }
+=======
+		// GETTING THE DATABASE LIST
+		function GetList (category) {
+			var dbref = firebase.database().ref("Recipes/" + category + "/Ingredients/");
+			var promise = dbref.once('value', function(snap) {
+				list = snap.val();
+				//console.log(list);
+			});
+			promise.then(function (){
+				DisplayList(list);
+			});
+		};
+
+		// // GETTING THE DATABASE LIST
+		// function GetMethod (category) {
+		// 	var dbref = firebase.database().ref("Recipes/" + category + "/Methods/");
+		// 	var promise = dbref.once('value', function(snap) {
+		// 		list2 = snap.val();
+		// 		//console.log(list2);
+		// 	});
+		// 	promise.then(function (){
+		// 		DisplayList(list2);
+		// 	});
+		// };
+				// // DISPLAY LIST FUNCTION
+				// function DisplayList (list2){
+        // for (Methods in list2){
+				// 	console.log(Methods);             //key   
+        //   console.log(list2[Methods]);       //value
+            
+				// 		// create a <p> element to show key value pair
+				// 			var para2 = document.createElement("p");
+        //   		document.body.appendChild(para2);
+        //   		var node2 = document.createTextNode(Methods);
+				// 			para2.appendChild(node2);
+				// 			var Methods = document.getElementById("Step1").innerHTML = list2;
+				// 			//console.log(Methods);
+				// 		}
+				// 	}
+
+				// DISPLAY LIST FUNCTION
+				function DisplayList (list){
+        for (ingredients in list){
+					console.log(ingredients);             //key   
+          console.log(list[ingredients]);       //value
+            
+						// create a <p> element to show key value pair
+							var para = document.createElement("p");
+          		document.body.appendChild(para);
+          		var node = document.createTextNode(ingredients);
+							para.appendChild(node);
+							var ingredient = document.getElementById("ing1").innerHTML = list;
+							//console.log(ingredient);
+						}
+					}
+
+
+>>>>>>> 6acf997e63996f08151a79087c9136b5a3cce725
 	</script>
 </body>
 </html>
