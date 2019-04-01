@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recipe Template</title>
+
+	<style>
+		
+		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+		body {
+			margin: 0;
+			font-family: 'Roboto', sans-serif;
+			background-image: url("/images/recipes-backgroud.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+		}
+
+		.navBar {
+			background-color: #ea3333;
+			width: 100%;
+			height: 100px;
+			display: flex;
+			align-items: center;
+			align-content: center;
+			justify-content: center;
+			color: white;
+		}
+
+		.navDecoration {
+			background-color: white;
+			width: 100%;
+			height: 5px;
+		}
+
+		.navBar > div {
+			display: flex;
+			align-items: flex-end;
+			align-content: center;
+			justify-content: space-between;
+			width: 67%;
+		}
+ 		
+ 		#logo {
+ 			width: 70px;
+ 			height: 70px;
+ 			border-radius: 35px;
+ 			background-color: white;
+ 		}
+
+ 		.buttonContainer {
+ 			font-size: 18pt;
+ 			width: 300px;
+ 			display: flex;
+ 			justify-content: space-between;
+ 		}
+
+ 		.button {
+ 			display: flex;
+ 			align-items: flex-end; 
+ 		}
+
+ 		.recipeContainer {
+ 			background-color: white;
+ 			width: 62%;
+ 			margin: 40px auto;
+ 			padding: 50px 100px;
+ 			display: flex;
+			align-content: center;
+			justify-content: center;
+			flex-direction: column;
+ 		}
+
+ 		.recipeTop {
+ 			display: flex;
+ 			justify-content: space-between;
+ 			width: 100%;
+ 			margin-bottom:30px;
+ 		}
+
+ 		#recipeTitle {
+ 			font-weight: 700;
+ 			font-size: 30pt;
+ 			margin-bottom: 10px;
+ 		}
+
+ 		#recipeDescription {
+ 			margin-top: 10px;
+ 			font-weight: 300;
+ 			width: 85%;
+ 		}
+
+ 		.recipeSelectorContainer {
+ 			width: 80%;
+ 			font-size: 18pt;
+ 			margin: 0 auto 75px auto;
+ 			display: flex;
+ 			justify-content: space-around;
+ 		}
+
+ 		.buttonDivider {
+ 			width: 2px;
+ 			background-color: gray;
+ 		}
+
+ 		.pageLeft {
+ 			display: flex;
+ 			flex-direction: column;
+ 			align-content: space-between;
+ 			justify-content: space-between;
+		 }
+	/*  IMAGE SLIDER CSS
+		
+		 //Slideshow container
+		.slideshow-container {
+			max-width: 1000px;
+			position: relative;
+			margin: auto;
+		}
+
+		//Hide the images by default
+		.mySlides {
+  			display: none;
+		}
+
+		// Next & previous buttons
+		.prev, .next {
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			width: auto;
+			margin-top: -22px;
+			padding: 16px;
+			color: white;
+			font-weight: bold;
+			font-size: 18px;
+			transition: 0.6s ease;
+			border-radius: 0 3px 3px 0;
+			user-select: none;
+		}
+
+		// Position the "next button" to the right 
+		.next {
+			right: 295px;
+  			border-radius: 3px 0 0 3px;
+		}
+
+		// On hover, add a black background color with a little bit see-through 
+		.prev:hover, .next:hover {
+  			background-color: rgba(0,0,0,0.8);
+		}
+
+		// Caption text 
+		.text {
+			color: #f2f2f2;
+			font-size: 15px;
+			padding: 8px 12px;
+			position: absolute;
+			bottom: 8px;
+			width: 100%;
+			text-align: center;
+		}
+
+		// Number text (1/3 etc)
+		.numbertext {
+			color: #f2f2f2;
+			font-size: 12px;
+			padding: 8px 12px;
+			position: absolute;
+			top: 0;
+		}
+
+		// The dots/bullets/indicators 
+		.dot {
+			cursor: pointer;
+			height: 15px;
+			width: 15px;
+			margin: 0 2px;
+			background-color: #bbb;
+			border-radius: 50%;
+			display: inline-block;
+			transition: background-color 0.6s ease;
+		}
+
+		.active, .dot:hover {
+			background-color: #717171;
+		}
+
+		// Fading animation 
+		.fade {
+			-webkit-animation-name: fade;
+			-webkit-animation-duration: 1.5s;
+			animation-name: fade;
+			animation-duration: 1.5s;
+		}
+
+		@-webkit-keyframes fade {
+			from {opacity: .4} 
+			to {opacity: 1}
+		}
+
+		@keyframes fade {
+			from {opacity: .4} 
+			to {opacity: 1}
+		}
+	*/
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyDRXRFtmA4E8vfJu9Zom2cugen5rYkSLHA",
+			authDomain: "in-season-1740a.firebaseapp.com",
+			databaseURL: "https://in-season-1740a.firebaseio.com",
+			projectId: "in-season-1740a",
+			storageBucket: "in-season-1740a.appspot.com",
+			messagingSenderId: "78195948126"
+			};
+		firebase.initializeApp(config);
+	</script>
+	
+</head>
+
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<div class="navBar">
+		<div>
+			<div id="logo"></div>
+			<div class="buttonContainer">
+				<div class="button" id="recipeNavButton">Recipes</div>
+				<div class="button" id="ingredientsNavButton">Ingredients</div>
+			</div>
+		</div>
+	</div>
+	<div class="navDecoration"></div>
+
+	<div class="recipeContainer">
+	
+		<div class="recipeSelectorContainer">
+			<b><div id="recipeButton1">Recipe 1</div></b>
+			<div class="buttonDivider"></div>
+			<b><div id="recipeButton2">Recipe 2</div></b>
+			<div class="buttonDivider"></div>
+			<b><div id="recipeButton3">Recipe 3</div></b>
+		</div>
+
+		<div class="recipeTop">
+
+			<div class="pageLeft">
+				<div>
+					<div id="recipeTitle">Recipe Title</div>
+					<div id ="recipeDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet in lectus a facilisis. Vestibulum tincidunt, diam non venenatis feugiat, mi ante cursus velit, quis mollis urna ipsum pharetra mi. Fusce a nunc libero. Vestibulum ante ipsum primis in faucibus.</div>
+				</div>
+
+				<div>
+					<b>Servings:</b> <span id="servings">4</span><br>
+					<b>Calories:</b> <span id="calories">>9000</span><br>
+					<b>Author:</b> <span id="author">Bill</span>
+				</div>
+			</div>
+			<div id="recipePic">
+					<img src="https://dummyimage.com/425x260/000/fff" alt="Recipe image">
+			</div>
+			<!-- <div id="recipePic"> IMAGE SLIDER HTML
+				Full-width images with number and caption text
+				<div class="mySlides fade">
+					<img src="https://dummyimage.com/425x260/000/fff" alt="Recipe image">
+				</div>
+					
+				<div class="mySlides fade">
+					<img src="https://dummyimage.com/425x260/000/fff" alt="Recipe image">
+				</div>
+					
+				<div class="mySlides fade">
+					<img src="https://dummyimage.com/425x260/000/fff" alt="Recipe image">
+				</div>
+					
+			Next and previous buttons
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+			</div>
+			<br>
+					
+			The dots/circles
+			<div style="text-align:center">
+				<span class="dot" onclick="currentSlide(1)"></span> 
+				<span class="dot" onclick="currentSlide(2)"></span> 
+				<span class="dot" onclick="currentSlide(3)"></span> 
+			</div> -->
+		</div>
+
+		<div>
+			<h2>Ingredients</h2>
+			<div class="ingredientsBody">
+				<ul>
+					<li id="ing1">Ingredient 1</li>
+				</ul>
+			</div>
+		</div>
+
+		<div>
+			<h2>Method</h2>
+			<div id="methodBody">
+				<ol>
+					<li id="Step1">Method 1</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+
+	<script>
+
+		// CLICK FOR RECIPE 1
+		document.getElementById("recipeButton1").addEventListener("click",
+			function(){
+				GetList("Famous_Salsa");
+				// GetMethod("Famous_Salsa");
+			//console.log(GetList("Famous_Salsa"));
+			});
+		// ClICK FOR RECIPE 2
+		document.getElementById("recipeButton2").addEventListener("click",
+			function() {
+				GetList("Creamy Au Gratin Potatoes");
+			});
+		// CLICK FOR RECIPE 3
+		document.getElementById("recipeButton3").addEventListener("click",
+			function() {
+				GetList("Tomato_Basil_Soup");
+
+				
+		});
+<<<<<<< HEAD
+
+		var slideIndex = 1;
+		showSlides(slideIndex);
+
+		// Next/previous controls
+		function plusSlides(n) {
+		showSlides(slideIndex += n);
+		}
+
+		// Thumbnail image controls
+		function currentSlide(n) {
+		showSlides(slideIndex = n);
+		}
+
+		// JS FOR IMAGE SLIDER
+		// function showSlides(n) {
+		// var i;
+		// var slides = document.getElementsByClassName("mySlides");
+		// var dots = document.getElementsByClassName("dot");
+		// if (n > slides.length) {slideIndex = 1} 
+		// if (n < 1) {slideIndex = slides.length}
+		// for (i = 0; i < slides.length; i++) {
+		// 	slides[i].style.display = "none"; 
+		// }
+		// for (i = 0; i < dots.length; i++) {
+		// 	dots[i].className = dots[i].className.replace(" active", "");
+		// }
+		// slides[slideIndex-1].style.display = "block"; 
+		// dots[slideIndex-1].className += " active";
+		// }
+=======
+		// GETTING THE DATABASE LIST
+		function GetList (category) {
+			var dbref = firebase.database().ref("Recipes/" + category + "/Ingredients/");
+			var promise = dbref.once('value', function(snap) {
+				list = snap.val();
+				//console.log(list);
+			});
+			promise.then(function (){
+				DisplayList(list);
+			});
+		};
+
+		// // GETTING THE DATABASE LIST
+		// function GetMethod (category) {
+		// 	var dbref = firebase.database().ref("Recipes/" + category + "/Methods/");
+		// 	var promise = dbref.once('value', function(snap) {
+		// 		list2 = snap.val();
+		// 		//console.log(list2);
+		// 	});
+		// 	promise.then(function (){
+		// 		DisplayList(list2);
+		// 	});
+		// };
+				// // DISPLAY LIST FUNCTION
+				// function DisplayList (list2){
+        // for (Methods in list2){
+				// 	console.log(Methods);             //key   
+        //   console.log(list2[Methods]);       //value
+            
+				// 		// create a <p> element to show key value pair
+				// 			var para2 = document.createElement("p");
+        //   		document.body.appendChild(para2);
+        //   		var node2 = document.createTextNode(Methods);
+				// 			para2.appendChild(node2);
+				// 			var Methods = document.getElementById("Step1").innerHTML = list2;
+				// 			//console.log(Methods);
+				// 		}
+				// 	}
+
+				// DISPLAY LIST FUNCTION
+				function DisplayList (list){
+        for (ingredients in list){
+					console.log(ingredients);             //key   
+          console.log(list[ingredients]);       //value
+            
+						// create a <p> element to show key value pair
+							var para = document.createElement("p");
+          		document.body.appendChild(para);
+          		var node = document.createTextNode(ingredients);
+							para.appendChild(node);
+							var ingredient = document.getElementById("ing1").innerHTML = list;
+							//console.log(ingredient);
+						}
+					}
+
+
+>>>>>>> 6acf997e63996f08151a79087c9136b5a3cce725
+	</script>
+</body>
+</html>
