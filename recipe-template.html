@@ -1,116 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<title>Recipe Template</title>
 
-	<style>
-		
-		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
-
-		body {
-			margin: 0;
-			font-family: 'Roboto', sans-serif;
-			background-image: url("images/recipes-backgroud.jpg");
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-attachment: fixed;
-		}
-
-		.navBar {
-			background-color: rgb(245, 30, 30);
-			width: 100%;
-			height: 100px;
-			display: flex;
-			align-items: center;
-			align-content: center;
-			justify-content: center;
-			color: white;
-		}
-
-		.navDecoration {
-			background-color: white;
-			width: 100%;
-			height: 5px;
-		}
-
-		.navBar > div {
-			display: flex;
-			align-items: flex-end;
-			align-content: center;
-			justify-content: space-between;
-			width: 67%;
-		}
- 		
- 		#logo {
- 			width: 70px;
- 			height: 70px;
- 			border-radius: 35px;
- 			background-color: white;
- 		}
-
- 		.buttonContainer {
- 			font-size: 18pt;
- 			width: 300px;
- 			display: flex;
- 			justify-content: space-between;
- 		}
-
- 		.button {
- 			display: flex;
- 			align-items: flex-end; 
- 		}
-
- 		.recipeContainer {
- 			background-color: white;
- 			width: 62%;
- 			margin: 40px auto;
- 			padding: 50px 100px;
- 			display: flex;
-			align-content: center;
-			justify-content: center;
-			flex-direction: column;
- 		}
-
- 		.recipeTop {
- 			display: flex;
- 			justify-content: space-between;
- 			width: 100%;
- 			margin-bottom:30px;
- 		}
-
- 		#recipeTitle {
- 			font-weight: 700;
- 			font-size: 30pt;
- 			margin-bottom: 10px;
- 		}
-
- 		#recipeDescription {
- 			margin-top: 10px;
- 			font-weight: 300;
- 			width: 85%;
- 		}
-
- 		.recipeSelectorContainer {
- 			width: 80%;
- 			font-size: 18pt;
- 			margin: 0 auto 75px auto;
- 			display: flex;
- 			justify-content: space-around;
- 		}
-
- 		.buttonDivider {
- 			width: 2px;
- 			background-color: gray;
- 		}
-
- 		.pageLeft {
- 			display: flex;
- 			flex-direction: column;
- 			align-content: space-between;
- 			justify-content: space-between;
- 		}
-
-	</style>
+	<link rel = "stylesheet" type = "text/css" href = "recipes.css" /> 
 		<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 
 		<script>
@@ -132,16 +26,17 @@
 
 	<div class="navBar">
 		<div>
-			<div id="logo"></div>
+			<div class="logo"></div>
 			<div class="buttonContainer">
 				<div class="button" id="recipeNavButton">Recipes</div>
 				<div class="button" id="ingredientsNavButton">Ingredients</div>
+				<div class="button" id="ProfileNavButton">Profile</div>
 			</div>
 		</div>
 	</div>
 	<div class="navDecoration"></div>
 
-	<div class="recipeContainer">
+	<div class="bodyContainer">
 	
 		<div class="recipeSelectorContainer">
 			<b><div id="recipeButton1">Recipe 1</div></b>
@@ -215,7 +110,7 @@
             console.log(x);             //key   
             console.log(list[x]);       //value
             
-            // create a <p> element to show key value pair
+		// create a <p> element to show key value pair
             var para = document.createElement("p");
             document.body.appendChild(para);
             var node = document.createTextNode (x);
