@@ -3,7 +3,7 @@
 
 <head>
 	<title>Recipe Template</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 	<style>
 		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
 
@@ -110,7 +110,8 @@
 			justify-content: space-between;
 		}
 	</style>
-	<script src="../js/client.js"></script>
+	<script src="/js/data.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 	<script>
 		// Initialize Firebase
@@ -129,6 +130,9 @@
 </head>
 
 <body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 	<div class="navBar">
 		<div>
 			<div class="logo"></div>
@@ -160,14 +164,16 @@
 
 			<div class="pageLeft">
 				<div>
-					<div id="recipeTitle"><a id ="getHTMLList"> Recipe Title</a></Recipe></div>
+					<div id="recipeTitle">Recipe Title</div>
 					<div id="recipeDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet in lectus a
 						facilisis. Vestibulum tincidunt, diam non venenatis feugiat, mi ante cursus velit, quis mollis urna ipsum
 						pharetra mi. Fusce a nunc libero. Vestibulum ante ipsum primis in faucibus.</div>
 				</div>
 
-				<div id = "git">
-
+				<div>
+					<b>Servings:</b> <span id="servings">4</span><br>
+					<b>Calories:</b> <span id="calories">>9000</span><br>
+					<b>Author:</b> <span id="author">Bill</span>
 				</div>
 			</div>
 			<div id="recipePic">
@@ -193,7 +199,6 @@
 				</ol>
 			</div>
 		</div>
-		
 	</div>
 
 	<script>
@@ -216,7 +221,6 @@
 				GetList("Tomato_Basil_Soup");
 				GetMethod("Tomato_Basil_Soup");
 			});
-		
 
 
 		// GETTING THE DATABASE LIST
@@ -270,7 +274,6 @@
 			}
 		}
 	</script>
-	
 </body>
 
 </html>
