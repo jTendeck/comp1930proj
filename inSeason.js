@@ -2,6 +2,7 @@ const express = require('express');
 const app     = express();
 const list    = require('./public/js/data.js');
 
+
 app.use(express.static('public'));
 
 app.get('/', function(req, res){
@@ -15,17 +16,35 @@ var server = app.listen(80, function () {
 console.log('listening on port 80');
 })
 
+app.get('/ajax-GET', function (req, res) {
+
+    // set the type of response:
+    res.setHeader('Content-Type', 'application/json');
+    let d = new Date();
+
+    res.send({ msg: d });
+
+})
+
 app.get('/ajax-GET-list', function (req, res) {
 
-    res.setHeader('Content-Type', 'application/json');
-    console.log(req.query['format']);
+    //res.setHeader('Content-Type', 'application/json');
+    //console.log(req.query['format']);
     let formatOfResponse = req.query['format'];
     let dataList = null;
 
     if(formatOfResponse == 'html-list') {
+
         res.setHeader('Content-Type', 'text/html');
         dataList = lists.getHTML();
         res.send(dataList);
+
+    } else if(formatOfResponse == 'json-list') {
+
+        res.setHeader('Content-Type', 'application/json');
+        dataList = lists.getJSON();
+        res.send(dataList);
+
     } else {
         res.send({msg: 'Wrong format!'});
     }

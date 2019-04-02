@@ -1,3 +1,15 @@
-<b>Servings:</b> <span id="servings">4</span><br>
-<b>Calories:</b> <span id="calories">>9000</span><br>
-<b>Author:</b> <span id="author">Bill</span>
+let htmlData  = "<ul><li>Monday</li></ul>";
+let htmlData2 = "<ul><li>This be here mon</li></ul>";
+
+module.exports = {
+	getHtml: function () {
+	  console.log("called: getHTML");
+	  return htmlData;
+	},
+	getHTML2: function () {
+		console.log("called: getHTML2");
+		return htmlData2;
+	}
+};
+
+
