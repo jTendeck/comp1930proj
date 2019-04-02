@@ -110,7 +110,10 @@
 			justify-content: space-between;
 		}
 	</style>
+<<<<<<< HEAD
 	<script src="/js/data.js"></script>
+=======
+>>>>>>> c4ee283adeb103c89583d6207849778485b01213
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 	<script>
@@ -126,7 +129,10 @@
 		firebase.initializeApp(config);
 	</script>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c4ee283adeb103c89583d6207849778485b01213
 </head>
 
 <body>
@@ -146,6 +152,10 @@
 	<div class="navDecoration"></div>
 
 	<div class="recipeContainer">
+<<<<<<< HEAD
+=======
+
+>>>>>>> c4ee283adeb103c89583d6207849778485b01213
 		<div class="recipeSelectorContainer">
 			<b>
 				<div id="recipeButton1">Recipe 1</div>
@@ -158,6 +168,15 @@
 			<b>
 				<div id="recipeButton3">Recipe 3</div>
 			</b>
+<<<<<<< HEAD
+=======
+			<b>
+				<div id="recipeButton4">Recipe 4</div>
+			</b>
+			<b>
+				<div id="recipeButton5">Recipe 5</div>
+			</b>
+>>>>>>> c4ee283adeb103c89583d6207849778485b01213
 		</div>
 
 		<div class="recipeTop">
@@ -207,19 +226,50 @@
 			function () {
 				GetList("Famous_Salsa");
 				GetMethod("Famous_Salsa");
+<<<<<<< HEAD
 				//console.log(GetList("Famous_Salsa"));
+=======
+				GetDescription("Famous_Salsa");
+				GetTitle("Famous_Salsa");
+>>>>>>> c4ee283adeb103c89583d6207849778485b01213
 			});
 		// ClICK FOR RECIPE 2
 		document.getElementById("recipeButton2").addEventListener("click",
 			function () {
 				GetList("Creamy Au Gratin Potatoes");
 				GetMethod("Creamy Au Gratin Potatoes");
+<<<<<<< HEAD
+=======
+				GetDescription("Creamy Au Gratin Potatoes");
+				GetTitle("Creamy Au Gratin Potatoes");
+>>>>>>> c4ee283adeb103c89583d6207849778485b01213
 			});
 		// CLICK FOR RECIPE 3
 		document.getElementById("recipeButton3").addEventListener("click",
 			function () {
 				GetList("Tomato_Basil_Soup");
 				GetMethod("Tomato_Basil_Soup");
+<<<<<<< HEAD
+=======
+				GetDescription("Tomato_Basil_Soup");
+				GetTitle("Tomato_Basil_Soup");
+			});
+		// CLICK FOR RECIPE 4
+		document.getElementById("recipeButton4").addEventListener("click",
+			function () {
+				GetList("Loaded Crack Potatoes");
+				GetMethod("Loaded Crack Potatoes");
+				GetDescription("Loaded Crack Potatoes");
+				GetTitle("Loaded Crack Potatoes");
+			});
+		// CLICK FOR RECIPE 5
+		document.getElementById("recipeButton5").addEventListener("click",
+			function () {
+				GetList("Roasted Garlic Cauliflower");
+				GetMethod("Roasted Garlic Cauliflower");
+				GetDescription("Roasted Garlic Cauliflower");
+				GetTitle("Roasted Garlic Cauliflower");
+>>>>>>> c4ee283adeb103c89583d6207849778485b01213
 			});
 
 
@@ -264,7 +314,11 @@
 		function DisplayList2(list2) {
 			var listDom2 = document.getElementById("stepList");
 			while (listDom2.hasChildNodes()) {
+<<<<<<< HEAD
 			listDom2.removeChild(listDom2.firstChild);
+=======
+				listDom2.removeChild(listDom2.firstChild);
+>>>>>>> c4ee283adeb103c89583d6207849778485b01213
 			}
 			for (x in list2) {
 				var item2 = document.createElement("li");
@@ -273,6 +327,56 @@
 				item2.appendChild(node2);
 			}
 		}
+<<<<<<< HEAD
+=======
+		// GETTING THE DATABASE LIST
+		function GetDescription(category) {
+			var dbref = firebase.database().ref("Recipes/" + category + "/Description");
+			var promise = dbref.once('value', function (snap) {
+				list3 = snap.val();
+				console.log(list3);
+			});
+			promise.then(function () {
+				DisplayList3(list3);
+			});
+		};
+
+		// DISPLAY DESCRIPTION
+		function DisplayList3(list3) {
+			var listDom = document.getElementById("recipeDescription");
+			while (listDom.hasChildNodes()) {
+				listDom.removeChild(listDom.firstChild);
+			}
+			var item = document.createElement("p");
+			listDom.appendChild(item);
+			var node = document.createTextNode(list3);
+			item.appendChild(node);
+		}
+
+		// GETTING THE DATABASE LIST
+		function GetTitle(category) {
+			var dbref = firebase.database().ref("Recipes/" + category + "/Title");
+			var promise = dbref.once('value', function (snap) {
+				list4 = snap.val();
+				console.log(list4);
+			});
+			promise.then(function () {
+				DisplayList4(list4);
+			});
+		};
+
+		// DISPLAY DESCRIPTION
+		function DisplayList4(list4) {
+			var listDom = document.getElementById("recipeTitle");
+			while (listDom.hasChildNodes()) {
+				listDom.removeChild(listDom.firstChild);
+			}
+			var item = document.createElement("p");
+			listDom.appendChild(item);
+			var node = document.createTextNode(list4);
+			item.appendChild(node);
+		}
+>>>>>>> c4ee283adeb103c89583d6207849778485b01213
 	</script>
 </body>
 
