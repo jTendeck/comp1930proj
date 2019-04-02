@@ -1,14 +1,3 @@
-let jsonData = ["Lundi"];
-let htmlData = "<ul><li>Monday</li></ul>";
-
-module.exports = {
-	getHTML : function () {
-	  console.log("called: getHTML");
-	  return htmlData;
-	},
-
-	getJSON : function () {
-	  console.log("called: getJSON");
-	  return jsonData;
-	}
-}
+<b>Servings:</b> <span id="servings">4</span><br>
+<b>Calories:</b> <span id="calories">>9000</span><br>
+<b>Author:</b> <span id="author">Bill</span>

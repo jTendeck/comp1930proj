@@ -2,27 +2,6 @@
 <html>
 
 <head>
-<<<<<<< HEAD
-
-	<title>Recipe Template</title>
-
-	<link rel = "stylesheet" type = "text/css" href = "recipes.css" /> 
-		<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-
-		<script>
-			// Initialize Firebase
-			var config = {
-				apiKey: "AIzaSyDRXRFtmA4E8vfJu9Zom2cugen5rYkSLHA",
-				authDomain: "in-season-1740a.firebaseapp.com",
-				databaseURL: "https://in-season-1740a.firebaseio.com",
-				projectId: "in-season-1740a",
-				storageBucket: "in-season-1740a.appspot.com",
-				messagingSenderId: "78195948126"
-			};
-			firebase.initializeApp(config);
-		</script>
-	
-=======
 	<title>Recipe Template</title>
 
 	<style>
@@ -131,6 +110,7 @@
 			justify-content: space-between;
 		}
 	</style>
+	<script src="/js/data.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 	<script>
@@ -146,7 +126,6 @@
 		firebase.initializeApp(config);
 	</script>
 
->>>>>>> ac34afac90e540a7bb9e458d0a828d76f49d3539
 </head>
 
 <body>
@@ -165,13 +144,7 @@
 	</div>
 	<div class="navDecoration"></div>
 
-<<<<<<< HEAD
-	<div class="bodyContainer">
-	
-=======
 	<div class="recipeContainer">
-
->>>>>>> ac34afac90e540a7bb9e458d0a828d76f49d3539
 		<div class="recipeSelectorContainer">
 			<b>
 				<div id="recipeButton1">Recipe 1</div>
@@ -183,6 +156,12 @@
 			<div class="buttonDivider"></div>
 			<b>
 				<div id="recipeButton3">Recipe 3</div>
+			</b>
+			<b>
+				<div id="recipeButton4">Recipe 4</div>
+			</b>
+			<b>
+				<div id="recipeButton5">Recipe 5</div>
 			</b>
 		</div>
 
@@ -234,18 +213,45 @@
 				GetList("Famous_Salsa");
 				GetMethod("Famous_Salsa");
 				//console.log(GetList("Famous_Salsa"));
+				GetDescription("Famous_Salsa");
+				GetTitle("Famous_Salsa");
+				document.getElementById("recipePic").innerHTML = "<img src='public/images/Famous_Salsa_1.jpg'>";
 			});
 		// ClICK FOR RECIPE 2
 		document.getElementById("recipeButton2").addEventListener("click",
 			function () {
 				GetList("Creamy Au Gratin Potatoes");
 				GetMethod("Creamy Au Gratin Potatoes");
+				GetDescription("Creamy Au Gratin Potatoes");
+				GetTitle("Creamy Au Gratin Potatoes");
+				document.getElementById("recipePic").innerHTML = "<img src='public/images/Creamy_Au_Gratin_Potatoes_1.jpg'>";
 			});
 		// CLICK FOR RECIPE 3
 		document.getElementById("recipeButton3").addEventListener("click",
 			function () {
 				GetList("Tomato_Basil_Soup");
 				GetMethod("Tomato_Basil_Soup");
+				GetDescription("Tomato_Basil_Soup");
+				GetTitle("Tomato_Basil_Soup");
+				document.getElementById("recipePic").innerHTML = "<img src='public/images/Tomato_Basil_Soup_1.jpg'>";
+			});
+		// CLICK FOR RECIPE 4
+		document.getElementById("recipeButton4").addEventListener("click",
+			function () {
+				GetList("Loaded Crack Potatoes");
+				GetMethod("Loaded Crack Potatoes");
+				GetDescription("Loaded Crack Potatoes");
+				GetTitle("Loaded Crack Potatoes");
+				document.getElementById("recipePic").innerHTML = "<img src='public/images/Loaded_Crack_Potatoes_1.jpg'>";
+			});
+		// CLICK FOR RECIPE 5
+		document.getElementById("recipeButton5").addEventListener("click",
+			function () {
+				GetList("Roasted Garlic Cauliflower");
+				GetMethod("Roasted Garlic Cauliflower");
+				GetDescription("Roasted Garlic Cauliflower");
+				GetTitle("Roasted Garlic Cauliflower");
+				document.getElementById("recipePic").innerHTML = "<img src='public/images/Roasted_Garlic_Cauliflower_1.jpg'>";
 			});
 
 
@@ -299,6 +305,53 @@
 				var node2 = document.createTextNode(list2[x]);
 				item2.appendChild(node2);
 			}
+		}
+		// GETTING THE DATABASE LIST
+		function GetDescription(category) {
+			var dbref = firebase.database().ref("Recipes/" + category + "/Description");
+			var promise = dbref.once('value', function (snap) {
+				list3 = snap.val();
+				console.log(list3);
+			});
+			promise.then(function () {
+				DisplayList3(list3);
+			});
+		};
+
+		// DISPLAY DESCRIPTION
+		function DisplayList3(list3) {
+			var listDom = document.getElementById("recipeDescription");
+			while (listDom.hasChildNodes()) {
+				listDom.removeChild(listDom.firstChild);
+			}
+			var item = document.createElement("p");
+			listDom.appendChild(item);
+			var node = document.createTextNode(list3);
+			item.appendChild(node);
+		}
+
+		// GETTING THE DATABASE LIST
+		function GetTitle(category) {
+			var dbref = firebase.database().ref("Recipes/" + category + "/Title");
+			var promise = dbref.once('value', function (snap) {
+				list4 = snap.val();
+				console.log(list4);
+			});
+			promise.then(function () {
+				DisplayList4(list4);
+			});
+		};
+
+		// DISPLAY DESCRIPTION
+		function DisplayList4(list4) {
+			var listDom = document.getElementById("recipeTitle");
+			while (listDom.hasChildNodes()) {
+				listDom.removeChild(listDom.firstChild);
+			}
+			var item = document.createElement("p");
+			listDom.appendChild(item);
+			var node = document.createTextNode(list4);
+			item.appendChild(node);
 		}
 	</script>
 </body>
