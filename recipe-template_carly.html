@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Recipe Template</title>
+
+	<style>
+		
+		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+		body {
+			margin: 0;
+			font-family: 'Roboto', sans-serif;
+			background-image: url("../images/recipes-backgroud.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-attachment: fixed;
+		}
+
+		.navBar {
+			background-color: #ea3333;
+			width: 100%;
+			height: 100px;
+			display: flex;
+			align-items: center;
+			align-content: center;
+			justify-content: center;
+			color: white;
+		}
+
+		.navDecoration {
+			background-color: white;
+			width: 100%;
+			height: 5px;
+		}
+
+		.navBar > div {
+			display: flex;
+			align-items: flex-end;
+			align-content: center;
+			justify-content: space-between;
+			width: 67%;
+		}
+ 		
+ 		#logo {
+ 			width: 70px;
+ 			height: 70px;
+ 			border-radius: 35px;
+ 			background-color: white;
+ 		}
+
+ 		.buttonContainer {
+ 			font-size: 18pt;
+ 			width: 300px;
+ 			display: flex;
+ 			justify-content: space-between;
+ 		}
+
+ 		.button {
+ 			display: flex;
+ 			align-items: flex-end; 
+ 		}
+
+ 		.recipeContainer {
+ 			background-color: white;
+ 			width: 62%;
+ 			margin: 40px auto;
+ 			padding: 50px 100px;
+ 			display: flex;
+			align-content: center;
+			justify-content: center;
+			flex-direction: column;
+ 		}
+
+ 		.recipeTop {
+ 			display: flex;
+ 			justify-content: space-between;
+ 			width: 100%;
+ 			margin-bottom:30px;
+ 		}
+
+ 		#recipeTitle {
+ 			font-weight: 700;
+ 			font-size: 30pt;
+ 			margin-bottom: 10px;
+ 		}
+
+ 		#recipeDescription {
+ 			margin-top: 10px;
+ 			font-weight: 300;
+ 			width: 85%;
+ 		}
+
+ 		.recipeSelectorContainer {
+ 			width: 80%;
+ 			font-size: 18pt;
+ 			margin: 0 auto 75px auto;
+ 			display: flex;
+ 			justify-content: space-around;
+ 		}
+
+ 		.buttonDivider {
+ 			width: 2px;
+ 			background-color: gray;
+ 		}
+
+ 		.pageLeft {
+ 			display: flex;
+ 			flex-direction: column;
+ 			align-content: space-between;
+ 			justify-content: space-between;
+		 }
+
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyDRXRFtmA4E8vfJu9Zom2cugen5rYkSLHA",
+			authDomain: "in-season-1740a.firebaseapp.com",
+			databaseURL: "https://in-season-1740a.firebaseio.com",
+			projectId: "in-season-1740a",
+			storageBucket: "in-season-1740a.appspot.com",
+			messagingSenderId: "78195948126"
+			};
+		firebase.initializeApp(config);
+	</script>
+	
+</head>
+
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<div class="navBar">
+		<div>
+			<div id="logo"></div>
+			<div class="buttonContainer">
+				<div class="button" id="recipeNavButton">Recipes</div>
+				<div class="button" id="ingredientsNavButton">Ingredients</div>
+			</div>
+		</div>
+	</div>
+	<div class="navDecoration"></div>
+
+	<div class="recipeContainer">
+	
+		<div class="recipeSelectorContainer">
+			<b><div id="recipeButton1">Recipe 1</div></b>
+			<div class="buttonDivider"></div>
+			<b><div id="recipeButton2">Recipe 2</div></b>
+			<div class="buttonDivider"></div>
+			<b><div id="recipeButton3">Recipe 3</div></b>
+		</div>
+
+		<div class="recipeTop">
+
+			<div class="pageLeft">
+				<div>
+					<div id="recipeTitle">Recipe Title</div>
+					<div id ="recipeDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet in lectus a facilisis. Vestibulum tincidunt, diam non venenatis feugiat, mi ante cursus velit, quis mollis urna ipsum pharetra mi. Fusce a nunc libero. Vestibulum ante ipsum primis in faucibus.</div>
+				</div>
+
+				<div>
+					<b>Servings:</b> <span id="servings">4</span><br>
+					<b>Calories:</b> <span id="calories">>9000</span><br>
+					<b>Author:</b> <span id="author">Bill</span>
+				</div>
+			</div>
+			<div id="recipePic">
+					<img src="https://dummyimage.com/425x260/000/fff" alt="Recipe image">
+			</div>
+
+		</div>
+
+		<div>
+			<h2>Ingredients</h2>
+			<div class="ingredientsBody">
+				<ul id = "ing1">
+					
+				</ul>
+			</div>
+		</div>
+
+		<div>
+			<h2>Method</h2>
+			<div id="methodBody">
+				<ol id="Step1">
+
+				</ol>
+			</div>
+		</div>
+	</div>
+
+	<script>
+
+		// CLICK FOR RECIPE 1
+		document.getElementById("recipeButton1").addEventListener("click",
+			function(){
+				GetList("Famous_Salsa");
+				GetMethod("Famous_Salsa");
+			//console.log(GetList("Famous_Salsa"));
+			});
+		// ClICK FOR RECIPE 2
+		document.getElementById("recipeButton2").addEventListener("click",
+			function() {
+				GetList("Creamy Au Gratin Potatoes");
+				GetMethod("Creamy Au Gratin Potatoes");
+			});
+		// CLICK FOR RECIPE 3
+		document.getElementById("recipeButton3").addEventListener("click",
+			function() {
+				GetList("Tomato_Basil_Soup");
+				GetMethod("Tomato_Basil_Soup");
+		});
+
+
+		// GETTING THE DATABASE LIST
+		function GetList (category) {
+			var dbref = firebase.database().ref("Recipes/" + category + "/Ingredients/");
+			var promise = dbref.once('value', function(snap) {
+				list = snap.val();
+				console.log(list);
+			});
+			promise.then(function (){
+				DisplayList(list);
+			});
+		};
+
+        function DisplayList (list){
+            ingDiv = document.getElementById("ing1");
+            for (x in list){
+              console.log(list[x]);                           //ingredient
+							var para = document.createElement("li");        //create list element
+          		ingDiv.appendChild(para);                       //append to ingredients div
+          		var node = document.createTextNode(list[x]);
+							para.appendChild(node);
+				//var ingredient = document.getElementById("ing1").innerHTML = list[x];
+				}
+				}
+				
+			// GETTING THE DATABASE LIST
+			function GetMethod(Method) {
+			var dbref = firebase.database().ref("Recipes/" + Method + "/Methods");
+			var promise = dbref.once('value', function (snap) {
+				list2 = snap.val();
+				console.log(list2);
+			});
+			promise.then(function () {
+				DisplayList2(list2);
+			});
+		};
+			// DISPLAY LIST FUNCTION
+			function DisplayList2(list2) {
+			methDiv = document.getElementById("Step1");
+			for (x in list2) {
+				//console.log(list2[x]);
+				var para2 = document.createElement("li");
+				methDiv.appendChild(para2);
+				var node2 = document.createTextNode(list2[x]);
+				para2.appendChild(node2);
+			}
+		}
+	</script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 		body {
 			margin: 0;
 			font-family: 'Roboto', sans-serif;
-			background-image: url("images/recipes-backgroud.jpg");
+			background-image: url("https://foodrevolution.org/wp-content/uploads/2018/04/blog-featured-diabetes-20180406-1330.jpg");
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-attachment: fixed;
@@ -43,7 +43,7 @@
 
  		.buttonContainer {
  			font-size: 16pt;
- 			width: 400px;
+ 			width: 30%;
  			display: flex;
  			justify-content: space-between;
  		}
@@ -57,7 +57,7 @@
  			background-color: white;
  			width: 62%;
  			margin: 0 auto;
- 			padding: 50px 100px;
+ 			padding: 50px 80px;
  			display: flex;
 			align-content: center;
 			justify-content: center;
@@ -132,3 +132,95 @@
       		align-content: space-between;
       		flex-direction: column;
  		}
+
+ 		.ingMethTitle {
+ 			font-size: 18pt;
+ 		}
+
+ 		
+ 	@media screen and (max-width: 1100px) {
+		
+		.bodyContainer {
+ 			width: 600px;
+ 			padding: 40px 40px;
+ 		}
+
+		.navBar > div {
+			width: 450px;
+		}
+
+		.buttonContainer {
+ 			font-size: 14pt;
+ 			width: 200px;
+ 		}
+
+ 		.recipeSelectorContainer {
+ 			width: 350px;
+ 			font-size: 14pt;
+ 			margin-bottom: 45px;
+ 		}
+
+ 		#recipePic img {
+ 			width: 275px;
+ 		}
+
+ 		#recipeTitle {
+ 			font-size: 18pt;
+ 		}
+
+ 		#recipeDescription {
+ 			width: 90%;
+ 			margin-bottom: 20px;
+ 		}
+
+ 		.recipeTop {
+ 			margin-bottom: 10px;
+ 		}
+ 		
+ 		.ingMethTitle {
+ 			font-size: 10pt;
+ 		}
+ 	}
+
+ 	@media screen and (max-width: 750px) {
+		.bodyContainer {
+ 			width: 406px;
+ 			padding: 30px 30px;
+ 		}
+
+ 		.navBar > div {
+			width: 320px;
+		}
+
+		.recipeSelectorContainer {
+ 			width: 325px;
+ 			font-size: 12pt;
+ 			margin-bottom: 40px;
+ 		}
+
+ 		.recipeTop {
+ 			flex-direction: column;
+ 		}
+
+ 		#recipeDescription {
+ 			width: 100%;
+ 			margin-bottom: 10px;
+ 		}
+
+ 		#recipePic img {
+ 			width: 100%;
+ 		}
+
+ 		.pageLeft {
+ 			margin-bottom: 20px;
+ 		}
+
+ 		#recipeTop {
+ 			margin-bottom: 0;
+ 		}
+
+ 		#recipeTitle {
+ 			font-size: 22pt;
+ 		}
+
+ 	}
