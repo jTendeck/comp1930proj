@@ -40,6 +40,8 @@
 		<p>In-Season</p>
 	</div>
 
+	<div id="Login"> Click here for login!</div>
+
 	<div id="firebaseui-auth-container"></div>
   <div id="loader">Loading...</div>
 
@@ -75,27 +77,32 @@
       },
       // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
       signInFlow: 'popup',
-      signInSuccessUrl: 'recipe-template.html',
+      signInSuccessUrl: 'AfterLogin.html',
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
         //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
         //firebase.auth.GithubAuthProvider.PROVIDER_ID,
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
         //firebase.auth.PhoneAuthProvider.PROVIDER_ID
       ],
-      // Terms of service url.
-      tosUrl: 'main.html',
-      // Privacy policy url.
-      privacyPolicyUrl: 'main.html',
-			
       accountChooserEnabled: false
     };
     
     // The start method will wait until the DOM is loaded.
     // Inject the login interface into the HTML
-    ui.start('#firebaseui-auth-container', uiConfig);
+		ui.start('#firebaseui-auth-container', uiConfig);
+
+		firebase.auth().onAuthStateChanged(function(user){
+        firebase.database().ref("Users/"+ user.uid).update(
+		{
+         "name":user.displayName, 
+         "email":user.email
+        });
+    });
+		
+
 
 	</script>
 </body>
