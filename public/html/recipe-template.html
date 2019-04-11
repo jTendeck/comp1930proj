@@ -31,9 +31,13 @@
 <body>
 
 	<div class="navBar">
-
-		<span class="logo" href="#home"><span class="logoFirstWord">in<b>Season</b></span>
-			
+		<div class="navContainer">
+		<div class="logo"><span href="#home"><span class="logoFirstWord">in<b>Season</b></span></div>
+		<div class="navButtonContainer">
+			<div>Home</div>
+			<div>Recipes</div>
+		</div>
+		</div>
 	</div>
 
 	<div class="navDecoration"></div>
@@ -59,24 +63,23 @@
 			<div id="recipePagePic"><img src="../images/recipes-backgroud.jpg" alt="Recipe image"><img></div>
 		</div>
 
-		<div>
-			<h2>Ingredients</h2>
+		<div class="ingHead">
+			Ingredients</div>
 			<div id="ingdiv" class="ingredientsBody">
 				<ul id="inglist">
 
 				</ul>
 			</div>
-		</div>
 
-		<div>
-			<h2>Method</h2>
+
+		<div class="ingHead">
+			Method</div>
 			<div id="stepDiv" class="methodBody">
 				<ol id="stepList">
 
 				</ol>
 			</div>
 		</div>
-		
 	</div>
 	
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
