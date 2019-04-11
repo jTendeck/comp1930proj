@@ -5,7 +5,7 @@
 	<title> In-Season Main Page </title>
 	<meta charset='utf-8' />
 	<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-	<link rel="stylesheet" type="text/css" href="/css/In-Season_MainPage.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/In-Season_MainPage.css">
 
 	<style>
 		@import url('https://fonts.googleapis.com/css?family=Muli');
@@ -25,23 +25,28 @@
 			messagingSenderId: "78195948126"
 		};
 		firebase.initializeApp(config);
+		app_firebase = firebase;
 	</script>
 
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- Load jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-
-		<script>
-				// Initialize the FirebaseUI Widget using Firebase.
-				var ui = new firebaseui.auth.AuthUI(firebase.auth());
-			</script>
 
 	<div class="title">
 		<p>In-Season</p>
 	</div>
 
+	<div id="Login"> Click here for login!<a class="nav-link" id="login" data-toggle="modal" href="#user_login">Login</a>
+	</div>
+
 	<div id="firebaseui-auth-container"></div>
-  <div id="loader">Loading...</div>
+	<div id="loader">Loading...</div>
 
 	<div class="buttons">
 		<a href="/html/recipe-template.html" class='recipes'>
@@ -58,45 +63,68 @@
 		</a>
 	</div>
 
-	<script>
-    var uiConfig = {
-      callbacks: {
-        signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-          // User successfully signed in.
-          // Return type determines whether we continue the redirect automatically
-          // or whether we leave that to developer to handle.
-          return true;
-        },
-        uiShown: function() {
-          // The widget is rendered.
-          // Hide the loader.
-          document.getElementById('loader').style.display = 'none';
-        }
-      },
-      // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-      signInFlow: 'popup',
-      signInSuccessUrl: 'recipe-template.html',
-      signInOptions: [
-        // Leave the lines as is for the providers you want to offer your users.
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-        //firebase.auth.GithubAuthProvider.PROVIDER_ID,
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        //firebase.auth.PhoneAuthProvider.PROVIDER_ID
-      ],
-      // Terms of service url.
-      tosUrl: 'main.html',
-      // Privacy policy url.
-      privacyPolicyUrl: 'main.html',
-			
-      accountChooserEnabled: false
-    };
-    
-    // The start method will wait until the DOM is loaded.
-    // Inject the login interface into the HTML
-    ui.start('#firebaseui-auth-container', uiConfig);
+	<div class="modal fade" id="user_login" tabindex="-1" role="dialog">
 
+		<div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+
+			<div class="modal-content" style>
+
+				<div class="modal-body">
+					<div id="firebaseui-auth-container"></div>
+
+					<div id="loader">Loading...</div>
+				</div>
+
+			</div>
+
+
+		</div>
+	</div>
+
+	<script>
+		// Initialize the FirebaseUI Widget using Firebase.
+		var ui = new firebaseui.auth.AuthUI(firebase.auth());
+	</script>
+
+	<script>
+		var uiConfig = {
+			callbacks: {
+				signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+					// User successfully signed in.
+					// Return type determines whether we continue the redirect automatically
+					// or whether we leave that to developer to handle.
+
+					$('#user_login').modal('hide');
+            loadnavbar();
+						
+					return true;
+				},
+				uiShown: function () {
+					// The widget is rendered.
+					// Hide the loader.
+					document.getElementById('loader').style.display = 'none';
+				}
+			},
+			// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+			signInFlow: 'popup',
+			signInSuccessUrl: 'Afterlogin.html',
+			signInOptions: [
+				// Leave the lines as is for the providers you want to offer your users.
+				firebase.auth.EmailAuthProvider.PROVIDER_ID,
+			],
+		};
+
+		// The start method will wait until the DOM is loaded.
+		// Inject the login interface into the HTML
+		ui.start('#firebaseui-auth-container', uiConfig);
+
+		firebase.auth().onAuthStateChanged(function (user) {
+			firebase.database().ref("Users/" + user.uid).update({
+
+				"name": user.displayName,
+				"email": user.email
+			});
+		});
 	</script>
 </body>
 
