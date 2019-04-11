@@ -29,53 +29,70 @@
 	</script> 
 
 <body>
-<div class="titleContainer">
+	<div class="titleContainer">
 
-	<div class="title">Welcome to
-		<br>
-		<div class="logo"><span href="#home"><span class="logoFirstWord">in<b>Season</b></span></div>
-
-</div>
-</div>
-<div class="textContainer">
-	<div class="textInner">
-		<div class="textTitle">What is inSeason?</div>
-		<br>
-		<div class="textBody"><p>Few people consider the environmental impact of their food. Not only do conventional farms use tons of harmful chemicals, but the food they produce often has to travel thousands of kilometers before it winds up on your table. All of this time in transit pumps CO2 into the atmosphere. Food from conventional farms often comes in lots of packaging which winds up in the landfill. There are many other environmental hazards associated with conventional farming.</p>
-			<p>How can we help the environment with the choices we make when buying food? One way is by buying in-season foods from local vendors. Not only do local in-season foods taste better than their supermarket counterparts, but you are doing the environment and your community a service by purchasing them. Local farmers tend to practice more environmentally-friendly farming techniques and food does not have to spend nearly as much time in transit. Talking with farmers will also put you more in touch with your community and your food. You will also be putting money back into the local economy.</p>
-			<p>So, how can inSeason help? inSeason is a dynamic recipe app that changes with the seasons. Recipes are generated based on what ingredients are currently in season and available from local vendors. Simply pick an ingrendient and recipes will appear based on your selection. The aim is to make shopping from local vendors more appealing by providing recipes that can be prepared after a trip to the farmer's market.</p>
-	</div>
-	<div class="textTitle">Let's get started!</div>
-<div class="textTitle2">These ingredients are currently in season:</div>
-<div class="ingContainers">
-	<div id="tomatoButton"><a href="recipe-list.html">Tomatoes
-	<img src="../images/tomato.svg"></a></div>
-	<div id="potatoButton"><a href="recipe-list2.html">Potatoes<img src="../images/potato.png"></a></div>
+		<div class="title">Welcome to
+			<br>
+			<div class="logo"><span href="#home"><span class="logoFirstWord">in<b>Season</b></span></div>
+		</div>
 	</div>
 
-	
-</div>
+	<div class="textContainer">
+		<div class="textInner">
+				<div class="welcome">
+						<p id="quote"></p>
+						</div>
+			<div class="textTitle">What is inSeason?</div>
+			<br>
+			<div class="textBody">
+				<p>Few people consider the environmental impact of their food. Not only do conventional farms use tons of
+					harmful chemicals, but the food they produce often has to travel thousands of kilometers before it winds up on
+					your table. All of this time in transit pumps CO2 into the atmosphere. Food from conventional farms often
+					comes in lots of packaging which winds up in the landfill. There are many other environmental hazards
+					associated with conventional farming.</p>
+				<p>How can we help the environment with the choices we make when buying food? One way is by buying in-season
+					foods from local vendors. Not only do local in-season foods taste better than their supermarket counterparts,
+					but you are doing the environment and your community a service by purchasing them. Local farmers tend to
+					practice more environmentally-friendly farming techniques and food does not have to spend nearly as much time
+					in transit. Talking with farmers will also put you more in touch with your community and your food. You will
+					also be putting money back into the local economy.</p>
+				<p>So, how can inSeason help? inSeason is a dynamic recipe app that changes with the seasons. Recipes are
+					generated based on what ingredients are currently in season and available from local vendors. Simply pick an
+					ingrendient and recipes will appear based on your selection. The aim is to make shopping from local vendors
+					more appealing by providing recipes that can be prepared after a trip to the farmer's market.</p>
+			</div>
+			<div class="textTitle">Let's get started!</div>
+			<div class="textTitle2">These ingredients are currently in season:</div>
+			<div class="ingContainers">
+				<div id="tomatoButton"><a href="recipe-list.html">Tomatoes
+						<img src="../images/tomato.svg"></a></div>
+				<div id="potatoButton"><a href="recipe-list2.html">Potatoes<img src="../images/potato.png"></a></div>
+			</div>
 
-<script>
-	(function () {
 
-		var loginPage = document.getElementById("welcome");
-		var quote = document.getElementById("quote");
-		var userName = " ";
+		</div>
 
-		//If the current user is authenticated then
+		<script>
+			(function () {
 
-		firebase.auth().onAuthStateChanged(function (user) {
-			if (user) {
-				var userName = user.displayName; // grab name of user
-				console.log(userName);
-				quote.innerHTML = "Hello " + userName; // update with Personalized Hello
-			}
-		});
-	})();
-</script>
+				var loginPage = document.getElementById("welcome");
+				var quote = document.getElementById("quote");
+				var userName = " ";
+
+				//If the current user is authenticated then
+
+				firebase.auth().onAuthStateChanged(function (user) {
+					if (user) {
+						var userName = user.displayName; // grab name of user
+						console.log(userName);
+						quote.innerHTML = "Hello, " + userName + "!"; // update with Personalized Hello
+					}
+				});
+			})();
+		</script>
 
 </body>
+
 </html>
 
 

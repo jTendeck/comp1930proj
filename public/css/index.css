@@ -21,11 +21,18 @@
 		.title {
 			color: white;
  			font-weight: 300;
- 			font-size: 24pt;
  			margin-bottom: 10px;
  			transition:all 0.3s ease;
  			margin: 0 auto;
  			font-size: 45pt;
+		 }
+
+		 .welcome {
+ 			font-weight: 300;
+ 			font-size: 30pt;
+ 			margin-bottom: 10px;
+ 			transition:all 0.3s ease;
+ 			margin: 0 auto;
  		}
 
  		.textTitle {
@@ -50,12 +57,11 @@
  		}
 
  		.textContainer {
- 			width: 100%
+ 			width: 100%;
  			font-size: 45pt;
  			background-color: white;
  			display: flex;
- 			padding: 100px 80px 50px;
- 			display: flex;
+ 			padding: 50px 80px 50px;
 			align-content: center;
 			justify-content: center;
 			flex-direction: column;

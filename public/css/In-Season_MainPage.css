@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url("../images/background.jpeg");
+    background-image: url("../images/background-blur.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -25,36 +25,3 @@ body {
     text-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
 }
 
-.buttons {
-    color: white;
-    margin: 8% auto 0 auto;
-    width: 80%;
-    font-size: 32pt;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-}
-
-.recipes {
-    text-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
-    text-decoration: none;
-    color: white;
-}
-
-.Ingredients {
-    text-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
-    text-decoration: none;
-    color: white;
-}
-
-.Stats {
-    text-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
-    text-decoration: none;
-    color: white;
-}
-
-.Others {
-    text-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
-    text-decoration: none;
-    color: white;
-}
