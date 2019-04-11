@@ -32,9 +32,8 @@
   			display: none;
 		}
 
-/*		#nutriButton {
+		#nutriButton {
   			text-align: center;
-  			float: left;
   			padding: 14px 22px;
   			width: 300px;
   			background-color: rgb(245, 30, 30);
@@ -47,7 +46,7 @@
 
 		#nutriButton:hover {
   			background-color: rgb(255, 116, 116);
-		}	*/
+		}	
 
 		body {
 			margin: 0;
@@ -118,8 +117,9 @@
  			transition:all 0.3s ease;
  		}
 
-		#recipePic {
+		#recipePic img{
 			transition:all 0.3s ease;
+			width: 300px;
 		}
 
  		#recipePagePic img {
