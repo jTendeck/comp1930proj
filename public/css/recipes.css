@@ -32,7 +32,7 @@
   			display: none;
 		}
 
-		#nutriButton {
+		#nutriButton a{
   			text-align: center;
   			padding: 14px 22px;
   			width: 300px;
@@ -41,10 +41,10 @@
   			text-decoration: none;
   			font-size: 12pt;
   			transition:all 0.3s ease;
-  			display: inline-block;
+			display: inline-block;
 		}
 
-		#nutriButton:hover {
+		#nutriButton a:hover {
   			background-color: rgb(255, 116, 116);
 		}	
 
@@ -68,6 +68,7 @@
 			justify-content: center;
 			color: white;
 			transition:all 0.3s ease;
+			text-decoration: none;
 		}
 
 		.navContainer {
@@ -77,6 +78,11 @@
 			width: 700px;
 			justify-content: space-between;
 			transition:all 0.3s ease;
+		}
+
+		.navContainer a {
+			text-decoration: none;
+			color: white;
 		}
 
 		.navButtonContainer {
