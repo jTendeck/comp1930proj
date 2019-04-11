@@ -32,7 +32,7 @@
   			display: none;
 		}
 
-/*		#nutriButton {
+		#tomatoButton {
   			text-align: center;
   			float: left;
   			padding: 14px 22px;
@@ -45,9 +45,26 @@
   			display: inline-block;
 		}
 
-		#nutriButton:hover {
+		#tomatoButton:hover {
   			background-color: rgb(255, 116, 116);
-		}	*/
+		}	
+
+		#potatoButton {
+  			text-align: center;
+  			float: left;
+  			padding: 14px 22px;
+  			width: 300px;
+  			background-color: rgb(245, 30, 30);
+  			color: white;
+  			text-decoration: none;
+  			font-size: 12pt;
+  			transition:all 0.3s ease;
+  			display: inline-block;
+		}
+
+		#potatoButton:hover {
+  			background-color: rgb(255, 116, 116);
+		}	
 
 		body {
 			margin: 0;

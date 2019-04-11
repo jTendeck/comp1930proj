@@ -9,8 +9,13 @@
 
 		.titleContainer {
 			width: 100%;
-			height: 100%;
-			
+			height: 100vh;
+			margin-bottom: 200px; 
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			text-shadow: 0 0 50px black;
 		}
 
 		.title {
@@ -20,4 +25,86 @@
  			margin-bottom: 10px;
  			transition:all 0.3s ease;
  			margin: 0 auto;
+ 			font-size: 45pt;
  		}
+
+ 		.textTitle {
+ 			font-weight: 400;
+ 			margin-bottom: 10px;
+ 			transition:all 0.3s ease;
+ 			margin: 0 auto;
+ 			font-size: 45pt;
+ 		}
+
+ 		.textTitle2 {
+ 			font-weight: 400;
+ 			font-size: 20pt;
+ 			margin-bottom: 10px;
+ 			margin-top: 20px;
+ 			transition:all 0.3s ease;
+ 			margin: 0 auto;
+ 		}
+
+ 		.logo {
+ 			font-size: 90pt;
+ 		}
+
+ 		.textContainer {
+ 			width: 100%
+ 			font-size: 45pt;
+ 			background-color: white;
+ 			display: flex;
+ 			padding: 100px 80px 50px;
+ 			display: flex;
+			align-content: center;
+			justify-content: center;
+			flex-direction: column;
+			transition:all 0.3s ease;
+ 		}
+
+ 		.textInner {
+ 			width: 70%;
+ 			margin: 0 auto;
+ 			font-size: 14pt;
+ 			display: flex;
+			flex-direction: column;
+			transition:all 0.3s ease;
+ 		}
+
+ 		.textBody {
+ 			margin-bottom: 30px;
+ 		}
+
+ 		#tomatoButton {
+  			text-align: center;
+  			float: left;
+  			padding: 14px 22px;
+  			width: 300px;
+  			background-color: rgb(245, 30, 30);
+  			color: white;
+  			text-decoration: none;
+  			font-size: 12pt;
+  			transition:all 0.3s ease;
+  			display: inline-block;
+		}
+
+		#tomatoButton:hover {
+  			background-color: rgb(255, 116, 116);
+		}	
+
+		#potatoButton {
+  			text-align: center;
+  			float: left;
+  			padding: 14px 22px;
+  			width: 300px;
+  			background-color: rgb(245, 30, 30);
+  			color: white;
+  			text-decoration: none;
+  			font-size: 12pt;
+  			transition:all 0.3s ease;
+  			display: inline-block;
+		}
+
+		#potatoButton:hover {
+  			background-color: rgb(255, 116, 116);
+		}	
