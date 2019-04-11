@@ -1,118 +1,18 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<title>Recipe Template</title>
 
-	<style>
-		@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+	<title>COMP1712 Recipe Template</title>
 
-		body {
-			margin: 0;
-			font-family: 'Roboto', sans-serif;
-			background-image: url("../images/recipes-backgroud.jpg");
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-attachment: fixed;
-		}
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-		.navBar {
-			background-color: #ea3333;
-			width: 100%;
-			height: 100px;
-			display: flex;
-			align-items: center;
-			align-content: center;
-			justify-content: center;
-			color: white;
-		}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel = "stylesheet" type = "text/css" href = "../css/recipes.css"> 
 
-		.navDecoration {
-			background-color: white;
-			width: 100%;
-			height: 5px;
-		}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-		.navBar>div {
-			display: flex;
-			align-items: flex-end;
-			align-content: center;
-			justify-content: space-between;
-			width: 67%;
-		}
-
-		#logo {
-			width: 70px;
-			height: 70px;
-			border-radius: 35px;
-			background-color: white;
-		}
-
-		.buttonContainer {
-			font-size: 18pt;
-			width: 300px;
-			display: flex;
-			justify-content: space-between;
-		}
-
-		.button {
-			display: flex;
-			align-items: flex-end;
-		}
-
-		.recipeContainer {
-			background-color: white;
-			width: 62%;
-			margin: 40px auto;
-			padding: 50px 100px;
-			display: flex;
-			align-content: center;
-			justify-content: center;
-			flex-direction: column;
-		}
-
-		.recipeTop {
-			display: flex;
-			justify-content: space-between;
-			width: 100%;
-			margin-bottom: 30px;
-		}
-
-		#recipeTitle {
-			font-weight: 700;
-			font-size: 30pt;
-			margin-bottom: 10px;
-		}
-
-		#recipeDescription {
-			margin-top: 10px;
-			font-weight: 300;
-			width: 85%;
-		}
-
-		.recipeSelectorContainer {
-			width: 80%;
-			font-size: 18pt;
-			margin: 0 auto 75px auto;
-			display: flex;
-			justify-content: space-around;
-		}
-
-		.buttonDivider {
-			width: 2px;
-			background-color: gray;
-		}
-
-		.pageLeft {
-			display: flex;
-			flex-direction: column;
-			align-content: space-between;
-			justify-content: space-between;
-		}
-	</style>
-	<script src="/js/client.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+	<link rel = "stylesheet" type = "text/css" href = "recipes.css" /> 
+		<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
 	<script>
 		// Initialize Firebase
 		var config = {
@@ -129,62 +29,34 @@
 </head>
 
 <body>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 	<div class="navBar">
-		<div>
-			<div class="logo"></div>
-			<div class="buttonContainer">
-				<div class="button" id="recipeNavButton">Recipes</div>
-				<div class="button" id="ingredientsNavButton">Ingredients</div>
-				<div class="button" id="ProfileNavButton">Profile</div>
-			</div>
-		</div>
+
+		<span class="logo" href="#home"><span class="logoFirstWord">in<b>Season</b></span>
+			
 	</div>
+
 	<div class="navDecoration"></div>
 
-	<div class="recipeContainer">
-		<div class="recipeSelectorContainer">
-			<b>
-				<div id="recipeButton1">Recipe 1</div>
-			</b>
-			<div class="buttonDivider"></div>
-			<b>
-				<div id="recipeButton2">Recipe 2</div>
-			</b>
-			<div class="buttonDivider"></div>
-			<b>
-				<div id="recipeButton3">Recipe 3</div>
-			</b>
-			<b>
-				<div id="recipeButton4">Recipe 4</div>
-			</b>
-			<b>
-				<div id="recipeButton5">Recipe 5</div>
-			</b>
-		</div>
+	<div class="bodyContainer">
+
 
 		<div class="recipeTop">
 
 			<div class="pageLeft">
 				<div>
 					<div id="recipeTitle">Recipe Title</div>
-					<div id="recipeDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet in lectus a
-						facilisis. Vestibulum tincidunt, diam non venenatis feugiat, mi ante cursus velit, quis mollis urna ipsum
-						pharetra mi. Fusce a nunc libero. Vestibulum ante ipsum primis in faucibus.</div>
+					<div id ="recipeDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet in lectus a facilisis. Vestibulum tincidunt, diam non venenatis feugiat, mi ante cursus velit, quis mollis urna ipsum pharetra mi. Fusce a nunc libero. Vestibulum ante ipsum primis in faucibus.</div>
 				</div>
 
-				<div>
+				<div class="servCalAuthContainer">
 					<b>Servings:</b> <span id="servings">4</span><br>
 					<b>Calories:</b> <span id="calories">>9000</span><br>
 					<b>Author:</b> <span id="author">Bill</span>
 				</div>
 			</div>
-			<div id="recipePic">
-				<img src="https://dummyimage.com/425x260/000/fff" alt="Recipe image">
-			</div>
 
+			<div id="recipePagePic"><img src="../images/recipes-backgroud.jpg" alt="Recipe image"><img></div>
 		</div>
 
 		<div>
@@ -204,9 +76,22 @@
 				</ol>
 			</div>
 		</div>
+		
 	</div>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-	<script>
+<script>function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}</script>
+
+<script>
 		// CLICK FOR RECIPE 1
 		document.getElementById("recipeButton1").addEventListener("click",
 			function () {
@@ -353,6 +238,6 @@
 			item.appendChild(node);
 		}
 	</script>
-</body>
 
+</body>
 </html>
