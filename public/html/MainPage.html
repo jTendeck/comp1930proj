@@ -25,6 +25,7 @@
 			messagingSenderId: "78195948126"
 		};
 		firebase.initializeApp(config);
+		app_firebase = firebase;
 	</script>
 
 </head>
@@ -97,6 +98,7 @@
 		firebase.auth().onAuthStateChanged(function(user){
         firebase.database().ref("Users/"+ user.uid).update(
 		{
+			
          "name":user.displayName, 
          "email":user.email
         });

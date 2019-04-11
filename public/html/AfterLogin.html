@@ -18,12 +18,27 @@
 </head>
 
 <body>
-  <div id="LoginPage"></div>
+  <div id="LoginPage">
+    <p id="quote"></p>
+  </div>
 
   <script>
-    
+    (function () {
 
+      var loginPage = document.getElementById("LoginPage");
+      var quote = document.getElementById("quote");
+      var userName = " ";
 
+      //If the current user is authenticated then
+
+      firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+          var userName = user.displayName; // grab name of user
+          console.log(userName);
+          quote.innerHTML = "Hello " + userName; // update with Personalized Hello
+        }
+    });
+  })();
   </script>
 </body>
 
