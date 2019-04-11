@@ -18,6 +18,11 @@
 			text-shadow: 0 0 50px black;
 		}
 
+		.textBody img {
+			margin: 45px;
+			width: 80%;
+		}
+
 		.title {
 			color: white;
  			font-weight: 300;
@@ -103,6 +108,8 @@
 		#tomatoButton a {
   			color: white;
   			text-decoration: none;
+  			transition:all 0.3s ease;
+  			transform: scale(1.1);
 		}
 
 		#tomatoButton img {
@@ -112,6 +119,8 @@
 
 		#tomatoButton:hover {
   			background-color: rgb(255, 116, 116);
+  			transition:all 0.3s ease;
+  			transform: scale(1.1);
 		}	
 
 		#potatoButton {
@@ -129,11 +138,13 @@
   			display: flex;
   			justify-content: space-around;
   			align-items: center;
+
 		}
 
 		#potatoButton a {
   			color: white;
   			text-decoration: none;
+
 		}
 
 		#potatoButton img {
@@ -143,4 +154,6 @@
 
 		#potatoButton:hover {
   			background-color: rgb(99, 219, 99);
+  			transition:all 0.3s ease;
+  			transform: scale(1.1);
 		}
