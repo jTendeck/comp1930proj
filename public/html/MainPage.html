@@ -22,7 +22,7 @@
 
 	<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
-	<link rel="stylesheet" type="text/css" href="../css/In-Season_MainPage.css">
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
 
 	<style>
 		@import url('https://fonts.googleapis.com/css?family=Muli');
@@ -45,13 +45,21 @@
 
 <body>
 
-	<div class="title">
-		<p>In-Season</p>
+	<div class="titleContainer">
+
+		<div class="title">Welcome to
+			<br>
+			<div class="logo"><span href="#home"><span class="logoFirstWord">in<b>Season</b></span></div>
+
+			<a class="nav-link" id="login" data-toggle="modal" href="#user_login">Login</a>
+		</div>
 	</div>
 	<!---->
-	<a class="nav-link" id="login" data-toggle="modal" href="#user_login">Login</a>
+	
 
     <!-- Main Content -->
+
+
 
     <div class="modal fade" id="user_login" tabindex="-1" role="dialog">
 
@@ -70,22 +78,6 @@
 
         </div>
     </div>
-
-
-	<div class="buttons">
-		<a href="/html/recipe-template.html" class='recipes'>
-			<p>Recipes</p>
-		</a>
-		<a href="http://www.google.ca" class='Ingredients'>
-			<p>Ingredients</p>
-		</a>
-		<a href="http://www.google.ca" class='Stats'>
-			<p>Stats</p>
-		</a>
-		<a href="http://www.google.ca" class='Others'>
-			<p>Others</p>
-		</a>
-	</div>
 
 	<script>
 		// Initialize the FirebaseUI Widget using Firebase.
