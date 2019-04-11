@@ -4,15 +4,29 @@
 <head>
 	<title> In-Season Main Page </title>
 	<meta charset='utf-8' />
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+	<!-- Load jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Firebase login UI -->
+	<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+
 	<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
 	<link rel="stylesheet" type="text/css" href="/public/css/In-Season_MainPage.css">
 
 	<style>
 		@import url('https://fonts.googleapis.com/css?family=Muli');
 	</style>
-
-	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-	<script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
 
 	<script>
 		// Initialize Firebase
@@ -25,15 +39,8 @@
 			messagingSenderId: "78195948126"
 		};
 		firebase.initializeApp(config);
-		app_firebase = firebase;
 	</script>
 
-	<!-- Bootstrap core CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-	<!-- Load jQuery -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -42,26 +49,7 @@
 		<p>In-Season</p>
 	</div>
 
-	<div id="Login"> Click here for login!<a class="nav-link" id="login" data-toggle="modal" href="#user_login">Login</a>
-	</div>
-
-	<div id="firebaseui-auth-container"></div>
-	<div id="loader">Loading...</div>
-
-	<div class="buttons">
-		<a href="/html/recipe-template.html" class='recipes'>
-			<p>Recipes</p>
-		</a>
-		<a href="http://www.google.ca" class='Ingredients'>
-			<p>Ingredients</p>
-		</a>
-		<a href="http://www.google.ca" class='Stats'>
-			<p>Stats</p>
-		</a>
-		<a href="http://www.google.ca" class='Others'>
-			<p>Others</p>
-		</a>
-	</div>
+	<a class="nav-link" id="login" data-toggle="modal" href="#user_login">Login</a>
 
 	<div class="modal fade" id="user_login" tabindex="-1" role="dialog">
 
@@ -81,6 +69,22 @@
 		</div>
 	</div>
 
+
+	<div class="buttons">
+		<a href="/html/recipe-template.html" class='recipes'>
+			<p>Recipes</p>
+		</a>
+		<a href="http://www.google.ca" class='Ingredients'>
+			<p>Ingredients</p>
+		</a>
+		<a href="http://www.google.ca" class='Stats'>
+			<p>Stats</p>
+		</a>
+		<a href="http://www.google.ca" class='Others'>
+			<p>Others</p>
+		</a>
+	</div>
+
 	<script>
 		// Initialize the FirebaseUI Widget using Firebase.
 		var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -95,8 +99,7 @@
 					// or whether we leave that to developer to handle.
 
 					$('#user_login').modal('hide');
-            loadnavbar();
-						
+
 					return true;
 				},
 				uiShown: function () {
@@ -105,19 +108,22 @@
 					document.getElementById('loader').style.display = 'none';
 				}
 			},
+			credentialHelper: firebaseui.auth.CredentialHelper.NONE,
 			// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
 			signInFlow: 'popup',
-			signInSuccessUrl: 'Afterlogin.html',
+			signInSuccessUrl: 'AfterLogin.html',
 			signInOptions: [
-				// Leave the lines as is for the providers you want to offer your users.
 				firebase.auth.EmailAuthProvider.PROVIDER_ID,
 			],
+			accountChooserEnabled: false
 		};
 
 		// The start method will wait until the DOM is loaded.
 		// Inject the login interface into the HTML
-		ui.start('#firebaseui-auth-container', uiConfig);
-
+		ui.start("#firebaseui-auth-container", uiConfig);
+	</script>
+	<script>
+		// STATE CHANGED
 		firebase.auth().onAuthStateChanged(function (user) {
 			firebase.database().ref("Users/" + user.uid).update({
 
@@ -125,6 +131,9 @@
 				"email": user.email
 			});
 		});
+	</script>
+
+	<script>
 	</script>
 </body>
 
