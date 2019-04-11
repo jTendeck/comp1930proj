@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url("/images/background.jpeg");
+    background-image: url("../images/background.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -10,7 +10,12 @@ body {
     width: 100%;
     z-index: -1;
 }
-
+.nav-link {
+    font-size: 36pt;
+    text-align: center;
+    color: white;
+    margin-top: 100px;
+}
 .title {
     text-align: center;
     font-size: 54pt;
@@ -22,7 +27,7 @@ body {
 
 .buttons {
     color: white;
-    margin: 12% auto 0 auto;
+    margin: 8% auto 0 auto;
     width: 80%;
     font-size: 32pt;
     display: flex;
