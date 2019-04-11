@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
 	<title>COMP1712 Recipe Template</title>
 
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -41,11 +40,11 @@
 	<div class="bodyContainer">
 
 		<div class="topnav" id="myTopnav">
-  			<a id="recipeButton1" href="#recipe1">Recipe 1</a>
-  			<a id="recipeButton2" href="#recipe2">Recipe 2</a>
-  			<a id="recipeButton3" href="#recipe3">Recipe 3</a>
-  			<a id="recipeButton4" href="#recipe4">Recipe 4</a>
-  			<a id="recipeButton5" href="#recipe5">Recipe 5</a>
+  			<a id="recipeButton1">Recipe 1</a>
+  			<a id="recipeButton2">Recipe 2</a>
+  			<a id="recipeButton3">Recipe 3</a>
+  			<a id="recipeButton4">Recipe 4</a>
+  			<a id="recipeButton5">Recipe 5</a>
   			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
    			<i class="fa fa-bars"></i>
   			</a>
@@ -59,14 +58,12 @@
 					<div id ="recipeDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet in lectus a facilisis. Vestibulum tincidunt, diam non venenatis feugiat, mi ante cursus velit, quis mollis urna ipsum pharetra mi. Fusce a nunc libero. Vestibulum ante ipsum primis in faucibus.</div>
 				</div>
 
-				<div class="servCalAuthContainer">
-					<b>Servings:</b> <span id="servings">4</span><br>
-					<b>Calories:</b> <span id="calories">>9000</span><br>
-					<b>Author:</b> <span id="author">Bill</span>
+				<div id="servCalAuthContainer">
+					
 				</div>
 			</div>
 
-			<div id="recipePic"><img src="../images/recipes-backgroud.jpg" alt="Recipe image"><img></div>
+			<div id="recipePic"><img src="images/recipes-backgroud.jpg" alt="Recipe image"><img></div>
 		</div>
 
 		<div>
@@ -87,11 +84,13 @@
 			</div>
 		</div>
 
-		<a id="nutriButton" href="nutriInfo">Click for Nutrition Info</a>
-		
+		<a id="nutriButton">Click for Nutrition info</a>
+		<div id="table">
+
+		</div>
 	</div>
 	
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <script>function myFunction() {
