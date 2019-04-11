@@ -9,6 +9,7 @@ let tableData3 = "<table><tr><th colspan=\"2\">Nutrition Info</th></tr><tr><th>F
 let tableData4 = "<table><tr><th colspan=\"2\">Nutrition Info</th></tr><tr><th>Fat:</th><td>17 g</td></tr><tr><th>Protein:</th><td>18 g</td></tr><tr><th>Carbs:</th><td>19 g</td></tr></table>";
 let tableData5 = "<table><tr><th colspan=\"2\">Nutrition Info</th></tr><tr><th>Fat:</th><td>22 g</td></tr><tr><th>Protein:</th><td>62 g</td></tr><tr><th>Carbs:</th><td>34 g</td></tr></table>";
 
+/** This is a test to get data from a virtual server as html objects. These methods are not actually called on the live server. */
 module.exports = {
 	getHTML: function () {
 	  console.log("called: getHTML");

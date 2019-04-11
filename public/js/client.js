@@ -21,6 +21,7 @@ $(document).ready(function(){
         });
     });
 
+    // GET A LIST OF 'THINGS' FROM THE SERVER AS HTML DATA
     $('#recipeButton2').click(function(e) {
         
         // don't allow the anchor to visit the link
@@ -42,6 +43,7 @@ $(document).ready(function(){
         });
     });
 
+    // GET A LIST OF 'THINGS' FROM THE SERVER AS HTML DATA
     $('#recipeButton3').click(function(e) {
         
         // don't allow the anchor to visit the link
@@ -63,6 +65,7 @@ $(document).ready(function(){
         });
     });
 
+    // GET A LIST OF 'THINGS' FROM THE SERVER AS HTML DATA
     $('#recipeButton4').click(function(e) {
         
         // don't allow the anchor to visit the link
@@ -85,6 +88,7 @@ $(document).ready(function(){
         });
     });
 
+    // GET A LIST OF 'THINGS' FROM THE SERVER AS HTML DATA
     $('#recipeButton5').click(function(e) {
         
         // don't allow the anchor to visit the link
@@ -106,6 +110,7 @@ $(document).ready(function(){
         });
     });
 
+    //GETS NUTRITION INFO FOR RECIPE (currently not working)
     $('#nutriButton1').click(function(e) {
         
         // don't allow the anchor to visit the link
@@ -127,6 +132,7 @@ $(document).ready(function(){
         });
     });
 
+    //GETS NUTRITION INFO FOR RECIPE (currently not working)
     $('#nutriButton2').click(function(e) {
         
         // don't allow the anchor to visit the link
@@ -148,6 +154,7 @@ $(document).ready(function(){
         });
     });
 
+    //GETS NUTRITION INFO FOR RECIPE (currently not working)
     $('#nutriButton3').click(function(e) {
         
         // don't allow the anchor to visit the link
@@ -169,6 +176,7 @@ $(document).ready(function(){
         });
     });
 
+    //GETS NUTRITION INFO FOR RECIPE (currently not working)
     $('#nutriButton4').click(function(e) {
         
         // don't allow the anchor to visit the link
@@ -190,6 +198,7 @@ $(document).ready(function(){
         });
     });
 
+    //GETS NUTRITION INFO FOR RECIPE (currently not working)
     $('#nutriButton5').click(function(e) {
         
         // don't allow the anchor to visit the link
